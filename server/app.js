@@ -5,7 +5,6 @@ const mysql = require('mysql2');
 
 const app = express();
 
-app.use(express.json());
 
 // Configura la conexión a la base de datos MySQL en AWS
 const connection = mysql.createPool({
@@ -15,6 +14,8 @@ const connection = mysql.createPool({
   database: 'BotLog', // El nombre de tu base de datos
   connectionLimit: 10, // Número máximo de conexiones en el pool
 });
+
+app.use(express.json());
 
 // Ruta para realizar una consulta a la base de datos
 app.get('/consultas', (req, res) => {
