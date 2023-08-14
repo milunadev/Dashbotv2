@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+const axios = require('axios');
 import { AppContext } from '../../Context';
 
 function getLast7Dates() {
