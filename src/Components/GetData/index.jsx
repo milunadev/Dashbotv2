@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
 const axios = require('axios');
-import { AppContext } from '../../Context';
 
 function getLast7Dates() {
   const today = new Date();
