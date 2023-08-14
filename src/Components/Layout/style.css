@@ -1,0 +1,8 @@
+
+.layout{
+    height: 100%;
+    display: grid;
+    padding: 10px;
+    align-items: center;
+    place-content: center;
+}
