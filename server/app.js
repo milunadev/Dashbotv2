@@ -8,7 +8,7 @@ const PORT= 3001; // El puerto que desees utilizar para el servidor backend
 var cors = require('cors');
 
 const corsOptions = {
-  origin: ['http://18.218.138.254:8080',"http://localhost:8080","http://18.218.138.254","http://localhost"],  // Cambia esto a la URL de tu frontend
+  origin: ['http://18.218.138.254:8080',"http://localhost:8080/","http://18.218.138.254/","http://localhost",'http://18.218.138.254:8080/'],  // Cambia esto a la URL de tu frontend
   methods: 'GET,POST,OPTIONS,PUT,PATCH,DELETE',
   allowedHeaders: 'x-access-token,Origin,X-Requested-With,Content-Type,Accept',
 };
