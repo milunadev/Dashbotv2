@@ -37,7 +37,7 @@ function compararConsultas(ultimasFechas, datosBaseDeDatos) {
 async function consultar() {
 
   try {
-    const response = await axios.get('http://localhost:3001/consultas');
+    const response = await axios.get('http://18.218.138.254:3001/consultas');
     const respuesta_DB = response.data;
     console.log('respuestaDB: ', respuesta_DB);
     return respuesta_DB;
