@@ -7,7 +7,7 @@ const app = express();
 const PORT= 7000; // El puerto que desees utilizar para el servidor backend
 
 const corsOptions = {
-  origin: '*',
+  origin: 'http://18.218.138.254:3000',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   // No incluir credenciales
   credentials: false,
