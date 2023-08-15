@@ -4,17 +4,10 @@ const mysql = require('mysql2');
 const cors = require('cors');
 
 const app = express();
-const port = 3000; // El puerto que desees utilizar para el servidor backend
+const PORT= 7000; // El puerto que desees utilizar para el servidor backend
 
 // Configura CORS para permitir solicitudes desde tu aplicación de React (puerto 3000)
-app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3001');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
-  );
-  next();
-});
+app.use(cors());
 
 // Configura la conexión a la base de datos MySQL en AWS
 const connection = mysql.createConnection({
@@ -24,8 +17,12 @@ const connection = mysql.createConnection({
   database: 'BotLog', // El nombre de tu base de datos
 });
 
+app.get('/prueba', function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'});
+});
+
 // Ruta para realizar una consulta a la base de datos
-app.get('/consultas', (req, res) => {
+app.get('/consultas', (req, res, next) => {
   const query = 'SELECT * FROM ConsultasLOG'; // Tu consulta SQL aquí
 
   // Realiza la consulta a la base de datos
@@ -41,6 +38,6 @@ app.get('/consultas', (req, res) => {
 });
 
 // Inicia el servidor en el puerto especificado
-app.listen(port, () => {
-  console.log(`Servidor backend escuchando en http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Servidor backend escuchando en http://localhost:${PORT}`);
 });

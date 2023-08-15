@@ -6,7 +6,7 @@ const Dashlet3 = () => {
 
   useEffect(() => {
     // Realiza la solicitud GET al servidor backend para obtener los datos de la base de datos
-    axios.get('http://localhost:3000/consultas')
+    axios.get('http://localhost:7000/pruebas')
       .then((response) => {
         setData(response.data);
         console.log('DATAAA: ',response.data)
@@ -19,13 +19,13 @@ const Dashlet3 = () => {
   return (
     <div>
       {/* Renderiza los datos obtenidos de la base de datos */}
-      
-      {data.map((item) => (
+      {data}
+      {/* {data.map((item) => (
         <div key={item.id}>
           <p>Fecha: {item.fecha}</p>
           <p>Consulta: {item.consulta}</p>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };

@@ -1,4 +1,5 @@
-const axios = require('axios');
+import axios from 'axios';
+import {useEffect} from 'react';
 
 function getLast7Dates() {
   const today = new Date();
@@ -34,8 +35,9 @@ function compararConsultas(ultimasFechas, datosBaseDeDatos) {
 }
 
 async function consultar() {
+
   try {
-    const response = await axios.get('http://localhost:3000/consultas');
+    const response = await axios.get('http://localhost:7000/consultas');
     const respuesta_DB = response.data;
     console.log('respuestaDB: ', respuesta_DB);
     return respuesta_DB;
