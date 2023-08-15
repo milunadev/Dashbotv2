@@ -35,10 +35,14 @@ function compararConsultas(ultimasFechas, datosBaseDeDatos) {
 }
 
 async function consultar() {
-
   try {
-    const response = await axios.get('http://localhost:3001/consultas');
-    const respuesta_DB = response.data;
+    const response = await fetch('http://localhost:3001/consultas');
+    
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    
+    const respuesta_DB = await response.json();
     console.log('respuestaDB: ', respuesta_DB);
     return respuesta_DB;
   } catch (error) {
