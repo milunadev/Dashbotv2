@@ -6,7 +6,7 @@ const Dashlet3 = () => {
 
   useEffect(() => {
     // Realiza la solicitud GET al servidor backend para obtener los datos de la base de datos
-    axios.get('http://172.31.7.194:3001/pruebabot')
+    axios.get('localhost:3001/pruebabot')
       .then((response) => {
         setData(response.data);
         console.log('DATAAA: ',response.data)

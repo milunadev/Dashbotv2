@@ -36,7 +36,7 @@ function compararConsultas(ultimasFechas, datosBaseDeDatos) {
 
 async function consultar() {
   try {
-    const response = await fetch('http://localhost:3001/consultas');
+    const response = await fetch('http://18.218.138.254:3001/consultas');
     
     if (!response.ok) {
       throw new Error('Network response was not ok');
