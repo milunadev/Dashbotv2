@@ -6,16 +6,9 @@ const cors = require('cors');
 const app = express();
 const PORT= 7000; // El puerto que desees utilizar para el servidor backend
 
-const corsOptions = {
-  origin: 'http://18.218.138.254:3000',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  // No incluir credenciales
-  credentials: false,
-  optionsSuccessStatus: 204,
-};
 
 // Configura CORS para permitir solicitudes desde tu aplicación de React (puerto 3000)
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Configura la conexión a la base de datos MySQL en AWS
 const connection = mysql.createConnection({
