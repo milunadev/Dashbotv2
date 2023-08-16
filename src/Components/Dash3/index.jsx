@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const Dashlet3 = () => {
   const [data, setData] = useState([]);
-  const backendUrl = 'http://miluna.dev';
+  const backendUrl = 'https://miluna.dev';
   useEffect(() => {
     // Realiza la solicitud GET al servidor backend para obtener los datos de la base de datos
     axios.get(`${backendUrl}/consultas`)
