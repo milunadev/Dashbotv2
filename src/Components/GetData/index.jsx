@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {useEffect} from 'react';
+import { backend_url } from '../variables';
 
 function getLast7Dates() {
   const today = new Date();
@@ -35,9 +35,8 @@ function compararConsultas(ultimasFechas, datosBaseDeDatos) {
 }
 
 async function consultar() {
-  const backendUrl = 'https://miluna.dev';
   try {
-    const response = await axios.get(`${backendUrl}/consultas`);
+    const response = await axios.get(`${backend_url}/consultas`);
     const respuesta_DB = response.data;
     console.log('respuestaDB: ', respuesta_DB);
     return respuesta_DB;

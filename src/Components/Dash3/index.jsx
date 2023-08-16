@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { backend_url } from '../variables';
 
 const Dashlet3 = () => {
   const [data, setData] = useState([]);
-  const backendUrl = 'https://miluna.dev';
   useEffect(() => {
     // Realiza la solicitud GET al servidor backend para obtener los datos de la base de datos
-    axios.get(`${backendUrl}/consultas`)
+    axios.get(`${backend_url}/consultas`)
       .then((response) => {
         setData(response.data);
         console.log('DATAAA: ',response.data)

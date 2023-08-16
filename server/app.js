@@ -8,7 +8,7 @@ const PORT= 3001; // El puerto que desees utilizar para el servidor backend
 var cors = require('cors');
 
 const corsOptions = {
-  origin: ['https://miluna.dev'],  // Cambia esto a la URL de tu frontend
+  origin: ['https://miluna.dev','http://localhost:3000'],  // Cambia esto a la URL de tu frontend
   methods: 'GET,POST,OPTIONS,PUT,PATCH,DELETE',
   allowedHeaders: 'x-access-token,Origin,X-Requested-With,Content-Type,Accept',
 };
