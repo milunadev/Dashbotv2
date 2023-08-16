@@ -35,7 +35,7 @@ function compararConsultas(ultimasFechas, datosBaseDeDatos) {
 }
 
 async function consultar() {
-  const backendUrl = 'https://miluna.dev';
+  const backendUrl = 'http://miluna.dev';
   try {
     const response = await axios.get(`${backendUrl}/consultas`);
     const respuesta_DB = response.data;
