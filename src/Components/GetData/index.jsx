@@ -35,9 +35,9 @@ function compararConsultas(ultimasFechas, datosBaseDeDatos) {
 }
 
 async function consultar() {
-
+  const backendUrl = 'https://milunadev-balanceador-1601823970.us-east-2.elb.amazonaws.com';
   try {
-    const response = await axios.get('http://18.218.138.254:3001/consultas');
+    const response = await axios.get(`${backendUrl}/consultas`);
     const respuesta_DB = response.data;
     console.log('respuestaDB: ', respuesta_DB);
     return respuesta_DB;
