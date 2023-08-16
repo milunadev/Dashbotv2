@@ -6,7 +6,7 @@ const Dashlet3 = () => {
   const backendUrl = 'https://miluna.dev';
   useEffect(() => {
     // Realiza la solicitud GET al servidor backend para obtener los datos de la base de datos
-    axios.get(`${backendUrl}/prueba`)
+    axios.get(`${backendUrl}/consultas`)
       .then((response) => {
         setData(response.data);
         console.log('DATAAA: ',response.data)
