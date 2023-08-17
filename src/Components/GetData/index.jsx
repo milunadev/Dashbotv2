@@ -1,37 +1,40 @@
 import axios from 'axios';
 import { backend_url } from '../variables';
 
-function getLast7Dates() {
+function getLast14Days() {
   const today = new Date();
-  const dates = [];
+  const days = [];
 
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < 14; i++) {
     const date = new Date(today);
     date.setDate(today.getDate() - i);
-    const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const day = date.getDate().toString().padStart(2, '0');
-    const formattedDate = `${year}-${month}-${day}`;
-    dates.push(formattedDate);
-}
-  return dates
+    const formattedDate = `${month}-${day}`;
+    days.push(formattedDate);
+  }
+  
+  return days.reverse();
 }
 
-function compararConsultas(ultimasFechas, datosBaseDeDatos) {
-  const resultados = {};
+function generarInforme(consultas) {
+  const last14Days = getLast14Days();
+  const informe = {};
 
-  for (const fecha of ultimasFechas) {
-    resultados[fecha] = 0;
+  for (const day of last14Days) {
+    informe[day] = 0;
   }
 
-  for (const consulta of datosBaseDeDatos) {
+  for (const consulta of consultas) {
     const fechaConsulta = new Date(consulta.fecha).toISOString().split('T')[0];
-    if (ultimasFechas.includes(fechaConsulta)) {
-      resultados[fechaConsulta]++;
+    const monthDay = fechaConsulta.substring(5, 10); // Obtenemos el formato mes-día
+
+    if (informe.hasOwnProperty(monthDay)) {
+      informe[monthDay]++;
     }
   }
-
-  return resultados;
+  console.log(informe)
+  return informe;
 }
 
 async function consultar() {
@@ -46,16 +49,6 @@ async function consultar() {
   }
 }
 
-async function utilizacion_7days() {
-  const ultimasFechas = getLast7Dates();
-  const datosBaseDeDatos = await consultar();
-  console.log("uti: ", ultimasFechas)
-  const fechasFormateadas = ultimasFechas.map((fecha) => fecha.split('T')[0]);
-
-  const utilizacion_bot = compararConsultas(fechasFormateadas, datosBaseDeDatos);
-  console.log('FINAL: ', utilizacion_bot);
-  return utilizacion_bot;
-}
 
 
-export {utilizacion_7days}
+export {generarInforme, consultar}

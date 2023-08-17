@@ -18,14 +18,13 @@ const Dashlet3 = () => {
 
   return (
     <div>
-      {/* Renderiza los datos obtenidos de la base de datos */}
-      
-      {/* {data.map((item) => (
+     
+      {data.map((item) => (
         <div key={item.id}>
           <p>Fecha: {item.fecha}</p>
           <p>Consulta: {item.consulta}</p>
         </div>
-      ))} */}
+      ))} 
     </div>
   );
 };

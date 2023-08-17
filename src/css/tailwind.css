@@ -1,0 +1,9 @@
+/* src/tailwind.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Agrega estilos personalizados si es necesario */
+.dashletgroup {
+    @apply flex flex-wrap sm:flex-col lg:flex-row justify-center content-center
+}

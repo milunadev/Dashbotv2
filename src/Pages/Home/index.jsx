@@ -1,14 +1,12 @@
 import React from 'react';
-import { Dashboard } from '../../Components/Dash1';
-import { Dashlet2 } from '../../Components/Dash2';
-import { Dashlet3 } from '../../Components/Dash3';
+import {PresentacionBot} from '../../Components/PresentacionBot'
+import {DashletUtilizacion} from '../../Components/DashletUtilizacion'
 
 const Home = () => {
   return (
     <>
-        <Dashboard/>
-        <Dashlet2/>
-        <Dashlet3/>
+        <PresentacionBot/>
+        <DashletUtilizacion/>
     </>
   );
 };

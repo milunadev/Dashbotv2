@@ -40,7 +40,7 @@ const Dashboard = () => {
 
   return (
     <div className='DashletContainer'>
-      <h1>Utilización del bot</h1>
+      <h1 className='text-blue-500' >Utilización del bot</h1>
       {chartData ? (
         <ReactApexChart
           options={chartData.options}
