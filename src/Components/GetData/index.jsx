@@ -73,6 +73,24 @@ function generarInforme(data1) {
   return utilizacion_fecha_format ;
 }
 
+function contarConsultas(data) {
+  const contador = {};
+
+  // Contar la concurrencia de cada valor de "consulta"
+  data.forEach((item) => {
+    const consulta = item.consulta;
+    contador[consulta] = contador[consulta] ? contador[consulta] + 1 : 1;
+  });
+
+  // Generar la lista de objetos en el formato deseado
+  const resultado = Object.keys(contador).map((consulta) => ({
+    x: consulta,
+    y: contador[consulta],
+  }));
+
+  return resultado;
+}
+
 async function consultar() {
   try {
     const response = await axios.get(`${backend_url}/consultas`);
@@ -87,4 +105,4 @@ async function consultar() {
 
 
 
-export {generarInforme, consultar}
+export {generarInforme, consultar, contarConsultas}

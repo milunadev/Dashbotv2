@@ -5,5 +5,30 @@
 
 /* Agrega estilos personalizados si es necesario */
 .dashletgroup {
-    @apply flex flex-wrap sm:flex-col lg:flex-row justify-center content-center
+    @apply flex flex-wrap sm:flex-col md:flex-col lg:flex-row justify-center content-center lg:min-w-max m-6 p-4 
+    lg:justify-around
+}
+
+.DashletContainer{
+    @apply min-w-max
+}
+
+.Cabecera{
+    @apply  border-2  rounded-2xl min-h-min
+    flex flex-wrap content-center justify-around
+    overflow-hidden p-4 
+}
+.logo{
+    @apply object-cover mb-2  border-blue-950 border-4 rounded-full shadow-sm w-32 h-32 sm:w-24 sm:h-24 lg:h-48 lg:w-48  mx-auto
+}
+
+.botonWebex{
+    @apply m-4 p-4 bg-lime-400 text-lg font-bold rounded-2xl 
+}
+.descripcionbot {
+    @apply lg:text-lg m-2 sm:text-xs
+}
+
+.dashboardtitle{
+    @apply sm:mt-2 sm:text-2xl text-4xl font-bold text-blue-950 text-center mt-4 
 }

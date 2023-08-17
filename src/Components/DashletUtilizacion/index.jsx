@@ -1,76 +1,45 @@
 import React, { useEffect, useState } from 'react';
-import ReactApexChart from 'react-apexcharts';
-import { generarInforme} from '../GetData/index.jsx';
+import { generarInforme, contarConsultas } from '../GetData/index.jsx'; // Asegúrate de importar estas funciones
 import { consultar } from '../GetData/index.jsx';
+import { Dashlet2 } from '../Dash2';
+import { Dashlet1 } from '../Dash1';
 
 
 const DashletUtilizacion = () => {
-  const [chartData, setChartData] = useState(null);
+  const [dataDB_dashlet1, setdataDBDashlet1] = useState(null);
   const [data, setData] = useState([]);
+  const [dataDB_dashlet2, setDataDBDashlet2] = useState(null); // Declarar dataDB_dashlet2 como estado
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const dataDB = await consultar();
         setData(dataDB);
-        console.log('data setdata: ', dataDB);
-        
-        const dataDB_utilizacion = generarInforme(dataDB);
+
+        const dataDB_dashlet1 = generarInforme(dataDB);
+        const dataDB_dashlet2 = contarConsultas(dataDB); // Contar las consultas aquí y asignar a dataDB_dashlet2
 
         // Transformar los datos para que se ajusten al formato de ApexCharts
-        const fechas = Object.keys(dataDB_utilizacion);
-        const consultas = Object.values(dataDB_utilizacion);
 
-        const chartData = {
-          series: [
-            {
-              name: "Sesiones",
-              data: consultas,
-            },
-          ],
-          options: {
-            chart: {
-              id: "line-chart",
-            },
-            xaxis: {
-              categories: fechas,
-            },
-          },
-        };
-        
-        setChartData(chartData);
+        setdataDBDashlet1(dataDB_dashlet1);
+        setDataDBDashlet2(dataDB_dashlet2); // Actualizar el estado de dataDB_dashlet2
+        console.log('data setdata: ', data);
       } catch (error) {
         console.error('Error al obtener y procesar los datos:', error);
       }
     };
-    
+
     fetchData();
   }, []);
 
   return (
-    
-    <div className='dashletgroup'>
-        
-            {chartData ? (
-                <ReactApexChart
-                options={chartData.options}
-                series={chartData.series}
-                type="line"
-                height={350}
-                />
-            ) : (
-                <p>Cargando datos...</p>
-            )}
-        
-        
-        <div>
-            {data.map((item) => (
-            <div key={item.id}>
-                <p>Fecha: {item.fecha}</p>
-                <p>Consulta: {item.consulta}</p>
-            </div>
-            ))} 
-        </div>
-    </div>
+    <>
+      <h1 className='dashboardtitle'> DASHBOARD DE MÉTRICAS DE UTILIZACIÓN DE SECUBOT</h1>
+      <div className='dashletgroup'> 
+        {dataDB_dashlet1 && <Dashlet1 data_dashlet1={dataDB_dashlet1} />}
+        {dataDB_dashlet2 && <Dashlet2 data_dashlet2={dataDB_dashlet2} />} {/* Renderizar Dashlet2 si dataDB_dashlet2 existe */}
+      </div>
+    </>
   );
 };
 

@@ -1,42 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ReactApexChart from 'react-apexcharts';
-import './style.css';
-import { utilizacion_7days } from '../GetData/index.jsx';
 
-const Dashboard = () => {
-  const [chartData, setChartData] = useState(null);
+const Dashlet1 = ({ data_dashlet1}) => {
+ 
 
-  useEffect(() => {
-    const fetchChartData = async () => {
-      const objetito = await utilizacion_7days();
-      console.log('DASH1: ', objetito);
+  const fechas = Object.keys(data_dashlet1);
+  const consultas = Object.values(data_dashlet1);
 
-      // Transformar los datos para que se ajusten al formato de ApexCharts
-      const categories = Object.keys(objetito);
-      const data = Object.values(objetito);
-
-      const chartData = {
-        series: [
-          {
-            name: "Sesiones",
-            data: data,
-          },
-        ],
-        options: {
-          chart: {
-            id: "line-chart",
-          },
-          xaxis: {
-            categories: categories,
-          },
-        },
-      };
-
-      setChartData(chartData);
-    };
-
-    fetchChartData();
-  }, []);
+  const chartData = {
+    series: [
+      {
+        name: 'Sesiones',
+        data: consultas,
+      },
+    ],
+    options: {
+      chart: {
+        id: 'line-chart',
+      },
+      xaxis: {
+        categories: fechas,
+      },
+    },
+  };
 
   return (
     <div className='DashletContainer'>
@@ -55,4 +41,4 @@ const Dashboard = () => {
   );
 };
 
-export { Dashboard };
+export { Dashlet1 };
