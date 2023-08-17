@@ -1,6 +1,8 @@
 
 const PresentacionBot = () => {
-
+    const abrirWebex = () => {
+        window.location.href = 'webexteams://im?contactEmail=botmi1@webex.bot';
+    };
     return(
         <div className="Cabecera" >
             
@@ -15,7 +17,7 @@ const PresentacionBot = () => {
                 <h2 className=" text-2xl sm:text-xl font-bold text-center">!HOLA, SOY SECUBOT 🤖!</h2>
                 <p className="descripcionbot">Soy un bot de Webex diseñado para ayudar a cualquier persona que quiera saber sobre el portafolio de seguridad de Cisco.</p>
                 <p className="descripcionbot">Búscame en webex con mi correo: botmi1@webex.bot</p>
-                <button className="botonWebex" href="webexteams://im?contactEmail=botmi1@webex.bot"> Habla conmigo</button>
+                <button className="botonWebex" onClick={abrirWebex}> Habla conmigo</button>
             </section>
         </div>
     );
