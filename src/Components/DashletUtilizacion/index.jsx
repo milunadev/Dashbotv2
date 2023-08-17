@@ -8,35 +8,42 @@ const DashletUtilizacion = () => {
   const [chartData, setChartData] = useState(null);
   const [data, setData] = useState([]);
   useEffect(() => {
-    const fetchChartData = async () => {
-      const dataDB = await consultar()  
-      setData(dataDB)  
-      const dataDB_utilizacion = await generarInforme(data);
-      
+    const fetchData = async () => {
+      try {
+        const dataDB = await consultar();
+        setData(dataDB);
+        console.log('data setdata: ', dataDB);
+        
+        const dataDB_utilizacion = generarInforme(dataDB);
 
-      // Transformar los datos para que se ajusten al formato de ApexCharts
-      const fechas = Object.keys(dataDB_utilizacion);
-      const consultas = Object.values(dataDB_utilizacion);
+        // Transformar los datos para que se ajusten al formato de ApexCharts
+        const fechas = Object.keys(dataDB_utilizacion);
+        const consultas = Object.values(dataDB_utilizacion);
 
-      const chartData = {
-        series: [
-          {
-            name: "Sesiones",
-            data: consultas,
+        const chartData = {
+          series: [
+            {
+              name: "Sesiones",
+              data: consultas,
+            },
+          ],
+          options: {
+            chart: {
+              id: "line-chart",
+            },
+            xaxis: {
+              categories: fechas,
+            },
           },
-        ],
-        options: {
-          chart: {
-            id: "line-chart",
-          },
-          xaxis: {
-            categories: fechas,
-          },
-        },
-      };
-      setChartData(chartData);
+        };
+        
+        setChartData(chartData);
+      } catch (error) {
+        console.error('Error al obtener y procesar los datos:', error);
+      }
     };
-    fetchChartData();
+    
+    fetchData();
   }, []);
 
   return (
