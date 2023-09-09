@@ -91,6 +91,31 @@ function contarConsultas(data) {
   return resultado;
 }
 
+function contarDominios(data) {
+  const contador = {};
+
+  // Contar la concurrencia de cada valor de "consulta"
+  data.forEach((item) => {
+    const dominio = item.dominio;
+    contador[dominio] = contador[dominio] ? contador[dominio] + 1 : 1;
+  });
+
+  return contador;
+}
+
+
+function contarUsuarios(data) {
+  const contador = {};
+
+  // Contar la concurrencia de cada valor de "consulta"
+  data.forEach((item) => {
+    const usuario = item.persona;
+    contador[usuario] = contador[usuario] ? contador[usuario] + 1 : 1;
+  });
+  console.log('contador ', contador)
+  return contador;
+}
+
 async function consultar() {
   try {
     const response = await axios.get(`${backend_url}/consultas`);
@@ -105,4 +130,4 @@ async function consultar() {
 
 
 
-export {generarInforme, consultar, contarConsultas}
+export {generarInforme, consultar, contarConsultas, contarDominios, contarUsuarios}

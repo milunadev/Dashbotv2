@@ -18,8 +18,12 @@ const Dashlet2 = ({ data_dashlet2 }) => {
         type: 'treemap'
       },
       title: {
-        text: 'Distibuted Treemap (different color for each cell)',
-        align: 'center'
+        text: 'Soluciones y ataques:',
+        align: 'center',
+        style : {
+          fontWeight:  'bold',
+          color:  '#263238'
+        }
       },
       colors: [
         '#3B93A5',
@@ -45,7 +49,7 @@ const Dashlet2 = ({ data_dashlet2 }) => {
   
     return (
       <div className='DashletContainer'>
-        <h1>Utilización del bot</h1>
+        <h1 className='text-blue-900 font-bold font-mono text-xl text-center' >LOS MÁS BUSCADOS</h1>
         <ReactApexChart options={options} series={options.series} type="treemap" height={350} />
       </div>
     );

@@ -21,12 +21,13 @@ const Dashlet1 = ({ data_dashlet1}) => {
       xaxis: {
         categories: fechas,
       },
+      
     },
   };
 
   return (
     <div className='DashletContainer'>
-      <h1 className='text-blue-500' >Utilización del bot</h1>
+      <h1 className='text-blue-900 font-bold font-mono text-xl text-center' >UTILIZACION DE SECUBOT</h1>
       {chartData ? (
         <ReactApexChart
           options={chartData.options}

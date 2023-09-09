@@ -19,10 +19,10 @@ app.use(cors(corsOptions));
 
 // Configura la conexión a la base de datos MySQL en AWS
 const connection = mysql.createConnection({
-  host: 'database-1.caf9eyf7qxj2.us-east-2.rds.amazonaws.com',
-  user: 'admin',
+  host: 'secubot0db.cbgchnjnb4mc.us-east-2.rds.amazonaws.com',
+  user: 'milunauser',
   password: 'Africa44!',
-  database: 'BotLog', // El nombre de tu base de datos
+  database: 'SecuBotDB', // El nombre de tu base de datos
 });
 
 app.get('/prueba', function (req, res, next) {

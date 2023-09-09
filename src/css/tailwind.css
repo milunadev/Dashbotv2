@@ -5,12 +5,12 @@
 
 /* Agrega estilos personalizados si es necesario */
 .dashletgroup {
-    @apply flex flex-wrap sm:flex-col md:flex-col lg:flex-row justify-center content-center lg:min-w-max m-6 p-4 
-    lg:justify-around
+    @apply w-[50%] flex flex-wrap sm:flex-col md:flex-col lg:flex-row justify-center content-center lg:min-w-full m-6 p-4 
+    lg:justify-around gap-10
 }
 
 .DashletContainer{
-    @apply min-w-max
+    @apply min-w-max min-h-max
 }
 
 .Cabecera{
@@ -22,13 +22,21 @@
     @apply object-cover mb-2  border-blue-950 border-4 rounded-full shadow-sm w-32 h-32 sm:w-24 sm:h-24 lg:h-48 lg:w-48  mx-auto
 }
 
-.botonWebex{
-    @apply m-4 p-4 bg-lime-400 text-lg font-bold rounded-2xl 
-}
+
 .descripcionbot {
     @apply lg:text-lg m-2 sm:text-xs
 }
 
 .dashboardtitle{
     @apply sm:mt-2 sm:text-2xl lg:text-4xl font-bold text-blue-950 text-center mt-4 
+}
+
+
+/* ------------- BOTONES -------------------- */
+/* ------------- BOTONES -------------------- */
+.botonWebex{
+    @apply m-4 p-4 bg-lime-400 text-lg font-bold rounded-2xl 
+}
+.botonInicio{
+    @apply bg-transparent hover:bg-lime-300 text-lime-950 font-semibold hover:text-black py-2 px-4 border border-lime-500 hover:border-transparent rounded 
 }
