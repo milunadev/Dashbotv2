@@ -4,6 +4,9 @@ import { motion, sync, useCycle } from "framer-motion";
 import { MenuToggle } from "../../Components/MainComponents/MenuToggle";
 import { Navigation } from "../../Components/MainComponents/Navigation";
 import "./styles.css";
+import 'atropos/css'
+import { PresentationCard } from '../../Components/MainComponents/PresentationCard';
+
 
 const useDimensions = ref => {
     const dimensions = useRef({ width: 0, height: 0 });
@@ -44,6 +47,8 @@ const Main = () => {
   return (
     <div className='main-body'>
 
+        <PresentationCard/>
+        
     
         <motion.nav
         initial={false}
