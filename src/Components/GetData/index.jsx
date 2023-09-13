@@ -94,13 +94,28 @@ function contarConsultas(data) {
 function contarDominios(data) {
   const contador = {};
 
-  // Contar la concurrencia de cada valor de "consulta"
+  // Contar la concurrencia de cada valor de "dominio"
   data.forEach((item) => {
     const dominio = item.dominio;
     contador[dominio] = contador[dominio] ? contador[dominio] + 1 : 1;
   });
 
-  return contador;
+  // Convertir el objeto contador en un array de pares clave-valor
+  const contadorArray = Object.entries(contador);
+
+  // Ordenar el array en orden descendente según el valor
+  contadorArray.sort((a, b) => b[1] - a[1]);
+
+  // Tomar los primeros 10 elementos del array
+  const top10Dominios = contadorArray.slice(0, 10);
+
+  // Convertir el resultado en un objeto
+  const resultado = {};
+  top10Dominios.forEach(([dominio, contador]) => {
+    resultado[dominio] = contador;
+  });
+
+  return resultado;
 }
 
 
@@ -112,9 +127,25 @@ function contarUsuarios(data) {
     const usuario = item.persona;
     contador[usuario] = contador[usuario] ? contador[usuario] + 1 : 1;
   });
-  console.log('contador ', contador)
-  return contador;
+
+  // Convertir el objeto contador en un array de pares clave-valor
+  const contadorArray = Object.entries(contador);
+
+  // Ordenar el array en orden descendente según el valor
+  contadorArray.sort((a, b) => b[1] - a[1]);
+
+  // Tomar los primeros 10 elementos del array
+  const top10Usuarios = contadorArray.slice(0, 10);
+
+  // Convertir el resultado en un objeto
+  const resultado = {};
+  top10Usuarios.forEach(([usuario, contador]) => {
+    resultado[usuario] = contador;
+  });
+
+  return resultado;
 }
+
 
 async function consultar() {
   try {
