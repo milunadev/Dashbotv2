@@ -40,7 +40,6 @@ app.get('/consultas', (req, res, next) => {
       res.status(500).json({ error: 'Error al realizar la consulta' });
     } else {
       res.json(results); // Envía los resultados de la consulta como respuesta al cliente (tu aplicación de React)
-      console.log("DATOS: ", results)
     }
   });
 });

@@ -57,8 +57,8 @@ const Main = () => {
         ref={containerRef}
         >
         <motion.div className="background" variants={sidebar} />
-        <Navigation />
-        <MenuToggle toggle={() => toggleOpen()} />
+        <Navigation  />
+        <MenuToggle className="z-1" toggle={() => toggleOpen()} />
         </motion.nav>
     </div>
   );

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { generarInforme, contarConsultas, contarDominios, contarUsuarios } from '../GetData/index.jsx'; // Asegúrate de importar estas funciones
-import { consultar } from '../GetData/index.jsx';
-import { Dashlet2 } from '../Dashlets/Dash2';
-import { Dashlet1 } from '../Dashlets/Dash1';
-import { Dashlet3 } from '../Dashlets/Dash3';
-import { Dashlet4 } from '../Dashlets/Dash4';
+import { generarInforme, contarConsultas, contarDominios, contarUsuarios } from './GetData/index.jsx'; // Asegúrate de importar estas funciones
+import { consultar } from './GetData/index.jsx';
+import { Dashlet2 } from './Dashlets/Dash2';
+import { Dashlet1 } from './Dashlets/Dash1';
+import { Dashlet3 } from './Dashlets/Dash3';
+import { Dashlet4 } from './Dashlets/Dash4';
 
 const DashletUtilizacion = () => {
   const [dataDB_dashlet1, setdataDBDashlet1] = useState(null);
@@ -28,7 +28,7 @@ const DashletUtilizacion = () => {
         setDataDBDashlet2(dataDB_dashlet2); // Actualizar el estado de dataDB_dashlet2
         setDataDBDashlet3(dataDB_dashlet3); 
         setDataDBDashlet4(dataDB_dashlet4); 
-        console.log('data setdata: ', data);
+        
       } catch (error) {
         console.error('Error al obtener y procesar los datos:', error);
       }

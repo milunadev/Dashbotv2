@@ -2,7 +2,7 @@ import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 
 const Dashlet4 = ({data_dashlet4}) => {
-    console.log('aqui',Object.values(data_dashlet4),Object.keys(data_dashlet4))
+    
     const ChartData = {
         series: [{
              data: Object.values(data_dashlet4)

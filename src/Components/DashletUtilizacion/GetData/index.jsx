@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { backend_url } from '../variables';
+import { backend_url } from '../../variables';
 
 function getLast14Days() {
   const today = new Date();
@@ -30,7 +30,6 @@ function convertFechas(data) {
       fecha: formattedFecha
     };
   });
-  console.log(newData)
   return newData;
 }
 
@@ -53,11 +52,11 @@ function formatDatesToDayMonth(obj) {
 
 function generarInforme(data1) {
   const last14Days = getLast14Days();
-  console.log(last14Days);
+ 
   const utilizacion_fecha = {}
-  console.log('data1: ', data1)
+ 
   const data = convertFechas(data1)
-  console.log(data)
+ 
   data.forEach((consulta) => {
       const fechaConsulta = consulta.fecha;
       if (last14Days.includes(fechaConsulta)) {
@@ -68,7 +67,7 @@ function generarInforme(data1) {
         }
       }
     });
-  console.log(utilizacion_fecha)
+  
   const utilizacion_fecha_format = formatDatesToDayMonth(utilizacion_fecha)
   return utilizacion_fecha_format ;
 }
