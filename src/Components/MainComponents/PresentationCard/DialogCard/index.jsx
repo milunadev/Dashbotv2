@@ -10,6 +10,7 @@ const MyDialog = () => {
         'Proyectos': "Conoce sobre mis habilidades en tecnologia con mi lista de proyectos y explicación de cada uno de ellos",
         'Blog': "Blog dedicado a mostrar mis aprendizajes y poder compartirlos",
         'Youtube': "Conoce mi contenido en las diferentes plataformas como microinfluencer.",
+        'Dashbot' : "Dashboard de utilización del bot en producción SecuBot"
     }
 
   return (
