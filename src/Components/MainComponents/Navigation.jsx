@@ -1,6 +1,11 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faCode , faPen  } from '@fortawesome/free-solid-svg-icons'
+import {  faYoutube } from '@fortawesome/free-brands-svg-icons';
+
+
 //variants define las animaciones cuando el menu se abre o cierra, y el otro para los items del MENU
 const variants = {
   open: {
@@ -27,9 +32,14 @@ const itemVariants = {
   }
 };
 
+const iconMapping = {
+  'Sobre MiLu': faUser,
+  'Proyectos': faCode,
+  'Blog': faPen,
+  'Youtube': faYoutube,
+};
 
-
-const itemIds = ['Sobre MiLu', 'Proyectos', 'Blog', 'Youtube'];
+const itemIds = Object.keys(iconMapping)
 //motion.ul crea una lista de animaciones 
 const Navigation = () => {
 
@@ -42,19 +52,21 @@ const Navigation = () => {
   
   return(
   <>
-    <motion.ul variants={variants}>
+    <motion.ul  variants={variants}>
       {itemIds.map((i) => (
-        <motion.li
-          key={i}
-          variants={itemVariants}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <div className="icon-placeholder" style={style(i)}></div>
-          <div className="text-placeholder hover:bg-[#352d3e] hover:text-[#f0ed34] text-center" style={style(i)}>
-            {i}          
-          </div>
-        </motion.li>
+         <motion.li
+         key={i}
+         variants={itemVariants}
+         whileHover={{ scale: 1.1 }}
+         whileTap={{ scale: 0.95 }}
+       >
+         <div className="icon-placeholder" style={style(i)}>
+           <FontAwesomeIcon size="lg" icon={iconMapping[i]} /> 
+         </div>
+         <div className="text-placeholder hover:bg-[#352d3e] hover:text-[#f0ed34] text-center" style={style(i)}>
+           {i}          
+         </div>
+       </motion.li>
         
       ))}
       <motion.li variants={
@@ -82,9 +94,11 @@ const Navigation = () => {
 
 
 const style = (i) => ({
-  
   //border: `2px solid ${colors[i]}`,
-  border: '2px solid #352d3e'
+  border: '2px solid #352d3e',
+  display: 'flex',
+  justifyContent: 'center',  // Centrar horizontalmente
+  alignItems: 'center',      // Centrar verticalmente
 });
 
 ////NO USADO

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Avatar } from "./Avatar";
 import { MyCard } from "./MyCard";
-import {infoText,socialLinks,resumeLink} from "../../variables"
+import {infoText,socialLinks,resumeLink,cardtitle} from "../../variables"
 
 const PresentationCard = () => {
     const [rotationDegree, setRotationDegree] = useState(0);
@@ -38,7 +38,7 @@ const PresentationCard = () => {
         className="absolute top-2/4 transform -translate-y-2/4"
         style={{ visibility: cardVisibility }}
       >
-        <MyCard info={infoText} socialLinks={socialLinks} resumeLink={resumeLink} />
+        <MyCard cardtitle={cardtitle} info={infoText} socialLinks={socialLinks} resumeLink={resumeLink} />
       </div>
       
     </div>

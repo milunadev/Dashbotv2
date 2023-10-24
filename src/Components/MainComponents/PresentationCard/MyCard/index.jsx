@@ -1,21 +1,28 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const MyCard = ({ info, socialLinks, resumeLink }) => {
+
+const MyCard = ({ cardtitle, info, socialLinks, resumeLink }) => {
+
+  const openNewTab = () => {
+    window.open('https://milunadev-documentos.s3.us-east-2.amazonaws.com/CV-MILUNA.pdf', '_blank');
+  };
+
   return (
     <div className="card">
-      <div className="img"></div>
-      <span>About Me</span>
+      <div className="img">
+        <img  id='profileimage' src="https://milunadev-documentos.s3.us-east-2.amazonaws.com/Perfil-MILUNA.jpeg" alt="" />
+      </div>
+      <span>{cardtitle}</span>
       <p className="info">{info}</p>
       <div className="share">
         {socialLinks.map((link) => (
-          <a key={link.name} href={link.url}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className={`bi bi-${link.name.toLowerCase()}`} viewBox="0 0 16 16">
-              {/* Agrega el icono SVG correspondiente aquí */}
-            </svg>
+         <a key={link.name} href={link.url}>
+            <FontAwesomeIcon size='lg' icon={['fab', link.name.toLowerCase()]} />
           </a>
         ))}
       </div>
-      <button>Resume</button>
+      <button onClick={openNewTab}>Resume</button>
     </div>
   );
 }

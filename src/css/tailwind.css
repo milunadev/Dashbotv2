@@ -81,6 +81,13 @@
     background: white;
     border-radius: 15px;
     margin: auto;
+    overflow: hidden;
+  }
+
+  #profileimage{
+    width: 100%;
+    
+    object-fit: cover;
   }
   
   .card .share {
@@ -116,3 +123,5 @@
     color: white;
     cursor: pointer;
   }
+
+
