@@ -2,6 +2,8 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import "./style.css"; 
 
+import { AppContext } from "../../Context";
+
 const Path = props => (
   <motion.path
     fill="transparent"
@@ -12,8 +14,11 @@ const Path = props => (
   />
 );
 
-export const MenuToggle = ({ toggle }) => (
-  <button className="nav-button" onClick={toggle}>
+
+export const MenuToggle = ({ toggle }) => { 
+  const { navisActive, setNavIsActive } = React.useContext(AppContext);
+  return (
+  <button className={`nav-button ${navisActive ? 'active' : ''}`} onClick={() =>{ toggle() ; console.log(navisActive) ; setNavIsActive(!navisActive)}}>
     <svg  width="23" height="23" viewBox="0 0 23 23">
       <Path
         variants={{
@@ -37,4 +42,4 @@ export const MenuToggle = ({ toggle }) => (
       />
     </svg>
   </button>
-);
+); }
