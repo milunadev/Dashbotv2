@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faCode , faPen  } from '@fortawesome/free-solid-svg-icons'
 import {  faYoutube } from '@fortawesome/free-brands-svg-icons';
 
+import { AppContext } from "../../Context";
+
 
 //variants define las animaciones cuando el menu se abre o cierra, y el otro para los items del MENU
 const variants = {
@@ -48,8 +50,12 @@ const Navigation = () => {
     // Usar navigate para ir a la página "/dashbot"
     navigate("/dashbot");
   };
-  
-  
+  const {activeNavIcon, setActiveNavIcon, navisActive} = React.useContext(AppContext)
+  const set = (li) => {
+    setActiveNavIcon(li);
+    console.log(activeNavIcon)
+  }
+
   return(
   <>
     <motion.ul  variants={variants}>
@@ -59,8 +65,13 @@ const Navigation = () => {
          variants={itemVariants}
          whileHover={{ scale: 1.1 }}
          whileTap={{ scale: 0.95 }}
+         onMouseEnter={() => {if(navisActive) {set(i)}}}
+         onMouseLeave={() =>  {if(navisActive) {set(null)}}}
        >
-         <div className="icon-placeholder" style={style(i)}>
+         <div className="icon-placeholder" 
+          style={style(i)}
+          
+         >
            <FontAwesomeIcon size="lg" icon={iconMapping[i]} /> 
          </div>
          <div className="text-placeholder hover:bg-[#352d3e] hover:text-[#f0ed34] text-center" style={style(i)}>
@@ -83,6 +94,8 @@ const Navigation = () => {
           }}}}>
       <div className="absolute bottom-0 w-full text-center hover:scale-110 p-4 border-2 border-[#352d3e]"
       onClick={handleDashBOTClick}
+      onMouseEnter={() => {if(navisActive) {set("Dashbot")}}}
+      onMouseLeave={() =>  {if(navisActive) {set(null)}}}
       >🤖DashBOT</div>
       </motion.li>
     </motion.ul>
