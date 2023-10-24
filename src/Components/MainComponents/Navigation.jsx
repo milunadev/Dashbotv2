@@ -35,29 +35,39 @@ const itemVariants = {
 };
 
 const iconMapping = {
-  'Sobre MiLu': faUser,
-  'Proyectos': faCode,
-  'Blog': faPen,
-  'Youtube': faYoutube,
+  'Sobre MiLu': [faUser, 'AboutMi'],
+  'Proyectos': [faCode, 'Proyectos'],
+  'Blog': [faPen, 'Blog' ],
+  'Youtube': [faYoutube, 'MiInfluencer' ]
 };
+
 
 const itemIds = Object.keys(iconMapping)
 //motion.ul crea una lista de animaciones 
 const Navigation = () => {
+
 
   const navigate = useNavigate();
   const handleDashBOTClick = () => {
     // Usar navigate para ir a la página "/dashbot"
     navigate("/dashbot");
   };
-  const {activeNavIcon, setActiveNavIcon, navisActive} = React.useContext(AppContext)
+  const {activeNavIcon, setActiveNavIcon, navisActive, setNavIsActive} = React.useContext(AppContext)
+
+  const handlenNav = (option) => { setActiveNavIcon(null); setNavIsActive(false) ;navigate(`/${option}`); }
+
+  
   const set = (li) => {
     setActiveNavIcon(li);
     console.log(activeNavIcon)
   }
 
+  
+ 
+
   return(
   <>
+    
     <motion.ul  variants={variants}>
       {itemIds.map((i) => (
          <motion.li
@@ -72,9 +82,9 @@ const Navigation = () => {
           style={style(i)}
           
          >
-           <FontAwesomeIcon size="lg" icon={iconMapping[i]} /> 
+           <FontAwesomeIcon size="lg" icon={iconMapping[i][0]} /> 
          </div>
-         <div className="text-placeholder hover:bg-[#352d3e] hover:text-[#f0ed34] text-center" style={style(i)}>
+         <div className="text-placeholder hover:bg-[#352d3e] hover:text-[#f0ed34] text-center" style={style(i)} onClick={ () => navisActive ? handlenNav(iconMapping[i][1]) : ""}>
            {i}          
          </div>
        </motion.li>
@@ -100,7 +110,7 @@ const Navigation = () => {
       </motion.li>
     </motion.ul>
     
-  </>
+  </> 
 )}
 
 
