@@ -1,0 +1,131 @@
+/* src/tailwind.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@700&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+
+#AboutMainContainer{
+    width: 100%;
+    padding: 20px;
+}
+
+.about-title{
+    font-family: 'Averia Sans Libre', sans-serif;
+    font-size: 24px;
+}
+
+#AboutMainContainer > .AboutLista1 {
+    
+    font-size: 12px;
+    list-style: none;
+}
+.AboutLista1 > li {
+    margin: 2px;
+}
+
+.AboutLista1 > li::before {
+  content: "👩‍💻 ";
+  color: red;
+  font-weight: bold;
+  margin-right: 1em;
+  width: 1em;
+  margin-left: 1em;
+}
+
+
+.aboutimg{
+    width: 200px;
+}
+
+
+
+
+  .about-card {
+    width: 300px;
+    height: 250px;
+    background-color: #011522;
+    border-radius: 8px;
+    
+   }
+   
+   .about-tools {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+   }
+   
+   .about-circle {
+    padding: 0 4px;
+   }
+   
+   .box {
+    display: inline-block;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+   }
+   
+   .red {
+    background-color: #ff605c;
+   }
+   
+   .yellow {
+    background-color: #ffbd44;
+   }
+   
+   .green {
+    background-color: #00ca4e;
+   }
+
+.AboutTechContainer{
+    width: 400px;
+    padding: 20px;
+}
+
+.AboutTechContainer > h2 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size:x-large ;
+    color: #fdf740;
+    font-weight: bold;
+}
+
+.description > p {
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    margin: 10px;
+}
+
+.AboutIconContainer {
+    width: 80%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Consulta de medios para pantallas más grandes (computadoras) */
+@media screen and (min-width: 768px) {
+    .about-title {
+      font-size: 32px;
+    }
+    .aboutimg{
+        width: 300px;
+    }
+    #AboutMainContainer > .AboutLista1 {
+        width: 100%;
+        font-size: 15px;
+    }
+    .about-card {
+        width: 400px;
+        height: 250px;
+        
+       }
+  }
+
