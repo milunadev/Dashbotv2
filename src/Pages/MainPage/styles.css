@@ -21,6 +21,8 @@
     bottom: 0;
     width: 300px;
     z-index: 10 ;
+    display: flex;
+    justify-content: center;
   }
   
   .background {

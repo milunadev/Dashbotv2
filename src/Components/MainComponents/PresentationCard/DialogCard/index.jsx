@@ -14,7 +14,7 @@ const MyDialog = () => {
     }
 
   return (
-        <div class="container">
+        <div class="dialog_container">
             <div class="terminal_toolbar">
                 <div class="butt">
                 <button class="btn btn-color"></button>
