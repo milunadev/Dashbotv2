@@ -12,15 +12,17 @@
 #AboutMainContainer{
     width: 100%;
     padding: 20px;
+   
 }
 
 .about-title{
     font-family: 'Averia Sans Libre', sans-serif;
-    font-size: 24px;
+    font-size: 20px;
+    text-align: center;
 }
 
 #AboutMainContainer > .AboutLista1 {
-    
+
     font-size: 12px;
     list-style: none;
 }
@@ -46,8 +48,8 @@
 
 
   .about-card {
-    width: 300px;
-    height: 250px;
+    width: 80%;
+    height: min-content;
     background-color: #011522;
     border-radius: 8px;
     
@@ -85,8 +87,9 @@
    }
 
 .AboutTechContainer{
-    width: 400px;
-    padding: 20px;
+    width: 90%;   
+    margin: 0px;
+    padding: 0px;
 }
 
 .AboutTechContainer > h2 {
@@ -99,17 +102,24 @@
 .description > p {
     font-family: 'Ubuntu', sans-serif;
     color: white;
-    margin: 10px;
+    
+    font-size: 14px;
 }
 
 .AboutIconContainer {
-    width: 80%;
+    width: 100%;
     display: flex;
     gap: 10px;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
+    margin : 8px;
 }
 
+.AboutItem{
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    font-size: 12px;
+}
 
 /* Consulta de medios para pantallas más grandes (computadoras) */
 @media screen and (min-width: 768px) {

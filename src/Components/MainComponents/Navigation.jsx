@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faCode , faPen  } from '@fortawesome/free-solid-svg-icons'
 import {  faYoutube } from '@fortawesome/free-brands-svg-icons';
-
 import { AppContext } from "../../Context";
 
+import "./style.css"; 
 
 //variants define las animaciones cuando el menu se abre o cierra, y el otro para los items del MENU
 const variants = {
@@ -68,7 +68,7 @@ const Navigation = () => {
   return(
   <>
     
-    <motion.ul  variants={variants}>
+    <motion.ul className="nav-ul"  variants={variants}>
       {itemIds.map((i) => (
          <motion.li
          key={i}
