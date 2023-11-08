@@ -12,16 +12,14 @@ library.add(faSquareJs,faReact,faAws,faBucket);
 const About = () => {
   return (
 
-    
-    
-    <section className='bg-black h-full flex gap-4'>
-      <div className='relative w-[450px] h-full'>
+    <section className='bg-black h-full '>
+      <div className='relative w-full h-full flex  flex-wrap justify-center p-4 '>
         <div className='absolute bottom-0 aboutimg'>
           <img className='w-full' src='https://milunadev-documentos.s3.us-east-2.amazonaws.com/michavatar.jpeg' alt="Descripción de la imagen" />
         </div>
 
 
-        <div className="about-card absolute top-3 left-3">
+        <div className="about-card ">
             <div className="about-tools">
               <div class="about-circle">
                 <span class="red box"></span>
@@ -34,7 +32,7 @@ const About = () => {
               </div>
             </div>
             <div class="card__content">
-            <div id='AboutMainContainer' className='absolute '>
+            <div id='AboutMainContainer' className=' '>
               <h1 className='text-white about-title  ' >Hola, soy Michelle Luna!</h1>
               <ul className='text-white AboutLista1 white'>
                 <li>Presales Engineer en Cisco Systems</li>
@@ -45,29 +43,40 @@ const About = () => {
             </div>
         </div>
 
+        <div className='AboutTechContainer'>
+        <h2 className='text-white' >¿TECNOLOGÍAS USADAS?</h2>
+        <span className='description'>
+          <p> Para el frontend de está página use:</p>
+          <div className='AboutIconContainer'>
+
+            <FontAwesomeIcon style={{color: "#fdf740",}} size='s' icon={faSquareJs} />
+            <FontAwesomeIcon style={{color: "#6ee0f7",}} size='s' icon={faReact} />
+            <p className='AboutItem'>Tailwind, React y JavaScript </p>
+          </div>
+        </span>
+
+        <span className='description'>
+          <p> Para el backend de está página use:</p>
+          <div className='AboutIconContainer'>
+            <FontAwesomeIcon icon={faAws} style={{color: "#e5a315",}} size='s' />
+            <p className='AboutItem'> Página hosteada en una instancia Linux EC2 de AWS. </p>
+          </div>
+          <div className='AboutIconContainer'> 
+            <FontAwesomeIcon icon={faBucket} style={{color: "#71bc15",}} size='s' />
+            <p className='AboutItem'> Imagenes y documentos hosteados en un bucket AWS S3. </p> 
+          </div>
+
+        </span>
+
+        <span className='description'>
+          <p>Para el despliegue de la arquitectura e</p>
+        </span>
+      </div>
+
       </div>
       
-
-      <div className='AboutTechContainer'>
-        <h2 className='text-white' >¿Que técnologias manejo?</h2>
-        <span className='description'>
-          <p> 🦄 Para el frontend de está página use:</p>
-          <div className='AboutIconContainer'>
-            <FontAwesomeIcon style={{color: "#fdf740",}} size='2xl' icon={faSquareJs} />
-            <FontAwesomeIcon style={{color: "#6ee0f7",}} size='2xl' icon={faReact} />
-            <p className='text-white' >Tailwind</p>
-          </div>
-        </span>
-
-        <span className='description'>
-          <p> 🔙 Para el backend de está página use:</p>
-          <div className='AboutIconContainer'>
-            <FontAwesomeIcon icon={faAws} style={{color: "#e5a315",}} size='2xl' />
-            <FontAwesomeIcon icon={faBucket} style={{color: "#71bc15",}} size='2xl' />
-            
-          </div>
-        </span>
-      </div>
+      
+      
 
 
 
