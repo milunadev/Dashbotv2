@@ -1,3 +1,4 @@
 #!/bin/bash
-screen -dmS myapp bash -c 'cd /var/app && PORT=8080 npm run start:both'
-
+cd /var/app
+screen -dmS myapp bash -c 'npm run start:both'
+sudo screen -ls > /home/ubuntu/output.txt
