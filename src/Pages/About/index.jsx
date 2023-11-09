@@ -69,7 +69,7 @@ const About = () => {
         </span>
 
         <span className='description'>
-          <p>HI</p>
+          <p>HI, Michelle</p>
         </span>
       </div>
 
