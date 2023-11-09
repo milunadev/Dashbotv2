@@ -1,5 +1,5 @@
 cd /var/app
-
+rm -rf /var/app/node_modules/*
 # Instalación de dependencias principales
 npm install \
   @emotion/react@^11.11.1 \
