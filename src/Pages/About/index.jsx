@@ -69,7 +69,7 @@ const About = () => {
         </span>
 
         <span className='description'>
-          <p>Para el despliegue de la arquitectura e</p>
+          <p>HI</p>
         </span>
       </div>
 
