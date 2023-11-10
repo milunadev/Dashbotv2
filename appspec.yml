@@ -16,10 +16,11 @@ hooks:
     - location: scripts/install_nodejs.sh
       timeout: 300
       runas: root
+    
+  ApplicationStart:
     - location: scripts/install_dependencies.sh
       timeout: 400
       runas: root
-  ApplicationStart:
     - location: scripts/start_app.sh
       timeout: 300
       runas: root
