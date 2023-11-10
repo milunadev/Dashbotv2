@@ -1,4 +1,5 @@
 import React from 'react';
+import 'tailwindcss/tailwind.css';
 import { Layout } from '../../Components/Layout';
 import '../../css/aboutme.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

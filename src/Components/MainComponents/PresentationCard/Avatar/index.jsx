@@ -1,4 +1,5 @@
 import React from 'react';
+import 'tailwindcss/tailwind.css';
 
 
 const Avatar = ({ loading, rotationDegree }) => {
