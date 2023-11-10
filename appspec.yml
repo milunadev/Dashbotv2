@@ -4,7 +4,7 @@ files:
   - source: /
     destination: /var/app
     overwrite: true
-    
+
 permissions:
   - object: /
     pattern: "**"
@@ -17,7 +17,7 @@ hooks:
       timeout: 300
       runas: root
     - location: scripts/install_dependencies.sh
-      timeout: 300
+      timeout: 400
       runas: root
   ApplicationStart:
     - location: scripts/start_app.sh
