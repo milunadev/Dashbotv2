@@ -3,16 +3,17 @@ os: linux
 files:
   - source: /
     destination: /var/app
-    overwrite: true
 
+   
 hooks:
   BeforeInstall:
-    - location: scripts/install_dependencies.sh
-      timeout: 400
+    - location: scripts/install_nodejs.sh
+      timeout: 300
       runas: root
-    
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
   ApplicationStart:
-    
     - location: scripts/start_app.sh
       timeout: 300
       runas: root

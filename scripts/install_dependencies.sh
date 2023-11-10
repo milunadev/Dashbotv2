@@ -1,2 +1,6 @@
 #!/bin/bash
-apt-get install nginx -y
+cd /var/app
+echo "Installing all dependencies using npm install..."
+npm install
+npm install pm2 -g
+aptget install nginx -y 
