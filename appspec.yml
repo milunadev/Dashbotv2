@@ -3,7 +3,8 @@ os: linux
 files:
   - source: /
     destination: /var/app
-
+    overwrite: true
+    
 permissions:
   - object: /
     pattern: "**"
