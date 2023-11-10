@@ -2,7 +2,8 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/app
+    destination: /app
+    overwrite: true
 hooks:
   BeforeInstall:
     - location: scripts/install_nodejs.sh
