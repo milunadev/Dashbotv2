@@ -1,4 +1,7 @@
 #!/bin/bash
 cd /var/app
-screen -dmS myapp bash -c 'npm run start:both'
-sudo screen -ls > /home/ubuntu/output.txt
+pm2 delete dashbot
+pm2 start npm --name "dashbot" -- run start:both
+pm2 startup
+pm2 save
+pm2 restart dashbot
