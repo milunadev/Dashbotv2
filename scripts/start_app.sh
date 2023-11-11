@@ -22,9 +22,17 @@ events {
 }
 
 http {
+	include /etc/nginx/mime.types;
         server{
           listen 8080;
           root /var/www/html/build;
+	  location /static/ {
+            alias /var/www/html/build/static/;
+          }
+
+          location / {
+           try_files $uri /index.html;
+          }
         }
 }
 EOF
