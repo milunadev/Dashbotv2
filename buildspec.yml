@@ -20,9 +20,6 @@ artifacts:
   # notably excluded is node_modules, as this will cause overwrite error on deploy
   files:
     - build/**/*
-    - server/**/*
-    - public/**/*
-    - src/**/*
     - package.json
     - appspec.yml
     - scripts/**/*
