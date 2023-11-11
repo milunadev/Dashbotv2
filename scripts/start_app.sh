@@ -7,6 +7,7 @@
 # pm2 restart dashbot
 
 
+
 #USANDO NGINGX
 cp -r /var/app/build /var/www/html
 cat << 'EOF' | sudo tee /etc/nginx/nginx.conf
