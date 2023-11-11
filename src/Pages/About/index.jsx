@@ -34,7 +34,7 @@ const About = () => {
             </div>
             <div class="card__content">
             <div id='AboutMainContainer' className=' '>
-              <h1 className='text-white about-title  ' >Hola, soy Michelle!</h1>
+              <h1 className='text-white about-title  ' >Hola :D :D, soy Michelle!</h1>
               <ul className='text-white AboutLista1 white'>
                 <li>Presales Engineer en Cisco Systems</li>
                 <li>Apasionada por la programabilidad</li>
