@@ -7,9 +7,6 @@ files:
    
 hooks:
   BeforeInstall:
-    - location: scripts/install_nodejs.sh
-      timeout: 300
-      runas: root
     - location: scripts/install_dependencies.sh
       timeout: 300
       runas: root
